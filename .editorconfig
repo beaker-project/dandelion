@@ -1,0 +1,18 @@
+# top-most EditorConfig file
+root = true
+
+[*]
+# Unix newlines
+end_of_line = lf
+# Newline ending file
+insert_final_newline = true
+# Trim trailing whitespaces
+trim_trailing_whitespace = true
+# charset
+charset = utf-8
+# Makefile always tab
+[Makefile]
+indent_style = tab
+[*.js]
+indent_style = space
+indent_size = 2

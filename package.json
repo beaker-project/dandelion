@@ -11,5 +11,15 @@
   "bugs": {
     "url": "https://github.com/beaker-project/beaker-dashboard/issues"
   },
-  "homepage": "https://github.com/beaker-project/beaker-dashboard#readme"
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "homepage": "https://github.com/beaker-project/beaker-dashboard#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
+    "husky": "^3.1.0"
+  }
 }

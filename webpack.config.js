@@ -2,6 +2,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 module.exports = {
+  entry: './src/index.ts',
   module: {
     rules: [
       {
@@ -11,7 +12,15 @@ module.exports = {
             loader: "html-loader"
           }
         ]
-      }
+      },
+      {
+        test: /\.(ts|tsx|js|jsx)?$/,
+        use: [
+          {
+            loader: 'ts-loader',
+          }
+        ]
+      },
     ]
   },
   plugins: [

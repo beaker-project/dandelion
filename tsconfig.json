@@ -4,6 +4,8 @@
     "module": "esnext",
     "lib": ["es6", "dom"],
     "allowJs": true,
+    "jsx": "react",
+    "baseUrl": "./",
     "sourceMap": true,
     "outDir": "dist",
     "removeComments": true,

@@ -15,7 +15,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.(ts|tsx|js|jsx)?$/,
+        test: /\.(js|jsx|ts|tsx)?$/,
         use: [
           {
             loader: 'ts-loader',
@@ -32,7 +32,7 @@ module.exports = {
     new BundleAnalyzerPlugin()
   ],
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
     plugins: [
       new TsconfigPathsPlugin({
         configFile: './tsconfig.json'

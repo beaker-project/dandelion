@@ -13,6 +13,6 @@ charset = utf-8
 # Makefile always tab
 [Makefile]
 indent_style = tab
-[*.js]
+[*.{js,jsx,ts,tsx}]
 indent_style = space
 indent_size = 2

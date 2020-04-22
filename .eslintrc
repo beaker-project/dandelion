@@ -2,7 +2,8 @@
     "env": {
         "browser": true,
         "es6": true,
-        "node": true
+        "node": true,
+        "jest": true
     },
     "extends": [
         "plugin:react/recommended",
@@ -47,5 +48,13 @@
                 "extensions": [".js", ".jsx", ".ts", ".tsx"]
             }
         }
-    }
+    },
+    "overrides": [
+        {
+          "files": ["src/**/*.test.tsx"],
+          "rules": {
+            "import/no-extraneous-dependencies": [0]
+          }
+        }
+      ]
 }

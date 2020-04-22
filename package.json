@@ -16,17 +16,23 @@
     "build": "webpack --mode production",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src --color",
     "prettier": "prettier --check \"./src/**/*.{js,jsx,ts,tsx}\"",
-    "prettier:fix": "prettier --write \"./src/**/*.{js,jsx,ts,tsx}\""
+    "prettier:fix": "prettier --write \"./src/**/*.{js,jsx,ts,tsx}\"",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch"
   },
   "husky": {
     "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-push": "npm run prettier && npm run lint && npm run test"
     }
   },
   "homepage": "https://github.com/beaker-project/beaker-dashboard#readme",
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
+    "@testing-library/jest-dom": "^5.5.0",
+    "@testing-library/react": "^10.0.3",
+    "@types/jest": "^25.2.1",
     "@types/webpack": "^4.41.12",
     "@typescript-eslint/eslint-plugin": "^2.29.0",
     "@typescript-eslint/parser": "^2.29.0",
@@ -41,7 +47,9 @@
     "html-loader": "^1.1.0",
     "html-webpack-plugin": "^4.2.0",
     "husky": "^4.0.7",
+    "jest": "^25.4.0",
     "prettier": "^2.0.4",
+    "ts-jest": "^25.4.0",
     "ts-loader": "^7.0.1",
     "tsconfig-paths-webpack-plugin": "^3.2.0",
     "typescript": "^3.8.3",

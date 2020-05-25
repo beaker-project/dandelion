@@ -1,5 +1,8 @@
+const path = require('path');
+
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = {
@@ -16,12 +19,80 @@ module.exports = {
       },
       {
         test: /\.(js|jsx|ts|tsx)?$/,
+        exclude: /node_modules/,
         use: [
           {
             loader: 'ts-loader',
           }
         ]
       },
+      {
+        test: /\.css$/,
+        include: [
+          path.resolve(__dirname, 'src'),
+          path.resolve(__dirname, 'node_modules/patternfly'),
+          path.resolve(__dirname, 'node_modules/@patternfly/patternfly'),
+          path.resolve(__dirname, 'node_modules/@patternfly/react-styles/css'),
+          path.resolve(__dirname, 'node_modules/@patternfly/react-core/dist/styles/base.css'),
+          path.resolve(__dirname, 'node_modules/@patternfly/react-core/dist/esm/@patternfly/patternfly'),
+          path.resolve(__dirname, 'node_modules/@patternfly/react-core/node_modules/@patternfly/react-styles/css'),
+          path.resolve(__dirname, 'node_modules/@patternfly/react-table/node_modules/@patternfly/react-styles/css'),
+          path.resolve(__dirname, 'node_modules/@patternfly/react-inline-edit-extension/node_modules/@patternfly/react-styles/css')
+        ],
+        use: [MiniCssExtractPlugin.loader, 'css-loader']
+      },
+      {
+        test: /\.(svg|ttf|eot|woff|woff2)$/,
+        include: [
+          path.resolve(__dirname, 'node_modules/patternfly/dist/fonts'),
+          path.resolve(__dirname, 'node_modules/@patternfly/react-core/dist/styles/assets/fonts'),
+          path.resolve(__dirname, 'node_modules/@patternfly/react-core/dist/styles/assets/pficon'),
+          path.resolve(__dirname, 'node_modules/@patternfly/patternfly/assets/fonts'),
+          path.resolve(__dirname, 'node_modules/@patternfly/patternfly/assets/pficon')
+        ],
+        use: {
+          loader: 'file-loader',
+          options: {
+            limit: 5000,
+            outputPath: 'fonts',
+            name: '[name].[ext]',
+          }
+        }
+      },
+      {
+        test: /\.svg$/,
+        include: input => (
+          (input.indexOf('fonts') === -1) &&
+          (input.indexOf('pficon') === -1)
+        ),
+        use: {
+          loader: 'raw-loader',
+          options: {}
+        }
+      },
+      {
+        test: /\.(jpg|jpeg|png|gif)$/i,
+        include: [
+          path.resolve(__dirname, 'src'),
+          path.resolve(__dirname, 'node_modules/patternfly'),
+          path.resolve(__dirname, 'node_modules/@patternfly/patternfly/assets/images'),
+          path.resolve(__dirname, 'node_modules/@patternfly/react-styles/css/assets/images'),
+          path.resolve(__dirname, 'node_modules/@patternfly/react-core/dist/styles/assets/images'),
+          path.resolve(__dirname, 'node_modules/@patternfly/react-core/node_modules/@patternfly/react-styles/css/assets/images'),
+          path.resolve(__dirname, 'node_modules/@patternfly/react-table/node_modules/@patternfly/react-styles/css/assets/images'),
+          path.resolve(__dirname, 'node_modules/@patternfly/react-inline-edit-extension/node_modules/@patternfly/react-styles/css/assets/images')
+        ],
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 5000,
+              outputPath: 'images',
+              name: '[name].[ext]',
+            }
+          }
+        ]
+      }
     ]
   },
   plugins: [
@@ -29,7 +100,11 @@ module.exports = {
       template: "./src/index.html",
       filename: "./index.html"
     }),
-    new BundleAnalyzerPlugin()
+    new BundleAnalyzerPlugin(),
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+      chunkFilename: '[name].bundle.css'
+    })
   ],
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],

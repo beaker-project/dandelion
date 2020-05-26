@@ -25,7 +25,12 @@ const App: React.FC = () => {
   );
 
   const Sidebar = (
-    <PageSidebar nav="Navigation" isNavOpen={isNavOpen} theme="dark" />
+    <PageSidebar
+      nav="Navigation"
+      isNavOpen={isNavOpen}
+      theme="dark"
+      data-testid="sidebar"
+    />
   );
 
   return (

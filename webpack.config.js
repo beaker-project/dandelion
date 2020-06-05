@@ -100,7 +100,10 @@ module.exports = {
       template: "./src/index.html",
       filename: "./index.html"
     }),
-    new BundleAnalyzerPlugin(),
+    new BundleAnalyzerPlugin({
+      analyzerMode: "static",
+      reportFilename: "../report.html"
+    }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[name].bundle.css'

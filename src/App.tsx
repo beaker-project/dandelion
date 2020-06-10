@@ -3,6 +3,7 @@ import '@patternfly/react-core/dist/styles/base.css';
 import {
   Page,
   PageHeader,
+  PageHeaderTools,
   PageSidebar,
   PageSection,
   PageSectionVariants,
@@ -16,8 +17,7 @@ const App: React.FC = () => {
   const Header = (
     <PageHeader
       logo="Logo"
-      toolbar="Toolbar"
-      avatar=" | Avatar"
+      headerTools={<PageHeaderTools>Toolbar | Avatar</PageHeaderTools>}
       showNavToggle
       isNavOpen={isNavOpen}
       onNavToggle={onNavToggle}

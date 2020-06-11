@@ -1,16 +1,16 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 
-import App from './App';
+import MainScreen from './MainScreen';
 
-describe('<App />', () => {
+describe('<MainScreen />', () => {
   test('should render the Navigation Bar text', async () => {
-    const { getByText } = render(<App />);
+    const { getByText } = render(<MainScreen />);
     const text = getByText('Navigation');
     expect(text).toBeInTheDocument();
   });
   test('should hide the Navigation Bar', async () => {
-    const { getByLabelText, getByTestId } = render(<App />);
+    const { getByLabelText, getByTestId } = render(<MainScreen />);
     fireEvent.click(getByLabelText('Global navigation'));
     const sideBar = getByTestId('sidebar');
     expect(sideBar).toHaveClass('pf-m-collapsed');

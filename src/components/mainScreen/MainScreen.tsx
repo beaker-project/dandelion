@@ -4,9 +4,9 @@ import {
   PageHeader,
   PageHeaderTools,
   PageSidebar,
-  PageSection,
-  PageSectionVariants,
 } from '@patternfly/react-core';
+
+import LocalTime from '../localTime/LocalTime';
 
 const MainScreen: React.FC = () => {
   const [isNavOpen, setIsNavOpen] = useState(true);
@@ -34,15 +34,7 @@ const MainScreen: React.FC = () => {
 
   return (
     <Page header={Header} sidebar={Sidebar}>
-      <PageSection variant={PageSectionVariants.darker}>
-        Section with darker background
-      </PageSection>
-      <PageSection variant={PageSectionVariants.dark}>
-        Section with dark background
-      </PageSection>
-      <PageSection variant={PageSectionVariants.light}>
-        Section with light background
-      </PageSection>
+      <LocalTime />
     </Page>
   );
 };

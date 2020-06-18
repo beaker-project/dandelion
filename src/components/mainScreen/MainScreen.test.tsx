@@ -1,7 +1,8 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
-
+import { render, fireEvent } from '../../tests/testUtils';
 import MainScreen from './MainScreen';
+
+jest.mock('../localTime/LocalTime', () => 'div');
 
 describe('<MainScreen />', () => {
   test('should render the Navigation Bar text', async () => {

@@ -53,7 +53,7 @@
     },
     "overrides": [
         {
-          "files": ["src/**/*.test.tsx", "src/tests/*"],
+          "files": ["src/**/*.test.tsx", "src/**/*.test.ts", "src/tests/*"],
           "rules": {
             "import/no-extraneous-dependencies": [0]
           }

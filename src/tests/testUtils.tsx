@@ -3,21 +3,32 @@ import { render as rtlRender } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
 import configureStore from 'redux-mock-store';
+import { AppState } from '../store';
 
 const middlewares = [createSagaMiddleware()];
-const mockStore = configureStore(middlewares);
+const mockStore = configureStore<AppState>(middlewares);
 
-function render(
+function connectedRender(
   ui: ReactElement,
-  initialState: {} = {},
+  initialState: AppState = {
+    localtime: {
+      dateString: '',
+      loading: false,
+      error: false,
+    },
+  },
   { ...renderOptions } = {}
 ) {
+  const store = mockStore(initialState);
   function Wrapper({ children }: { children?: ReactNode }) {
-    return <Provider store={mockStore(initialState)}>{children}</Provider>;
+    return <Provider store={store}>{children}</Provider>;
   }
-  return rtlRender(ui, { wrapper: Wrapper, ...renderOptions });
+  return {
+    store,
+    result: rtlRender(ui, { wrapper: Wrapper, ...renderOptions }),
+  };
 }
 
 export * from '@testing-library/react';
 
-export { render };
+export { connectedRender };

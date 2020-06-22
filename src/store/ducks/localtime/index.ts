@@ -1,7 +1,7 @@
 import { Reducer } from 'redux';
 import { LocaltimeState, LocaltimeTypes } from './types';
 
-const INITIAL_STATE: LocaltimeState = {
+export const INITIAL_STATE: LocaltimeState = {
   dateString: '',
   loading: false,
   error: false,

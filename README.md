@@ -1,8 +1,17 @@
-# Beaker.Next Dashboard
+# Dandelion
 
-This repository contains code for the next version of Beaker's Web Interface.
+This repository contains code to serve as base for a React/PatternFly project.
 
-Currently in early development stage. Any kind of change in code / content / behavior may change anytime.
+It has some predefined structure, boilerplate code, and examples to start with. Currently, it implements:
+- React Hooks in functional components
+- Patternfly 4
+- TypeScript
+- Redux for state management
+- Redux-saga for side-effects handling
+- Jest + React Testing Library for tests
+- Prettier for code style validation
+- ESLint for code checking
+- Commitlint for commit message checking
 
 ## Running it in a container:
 
@@ -10,13 +19,13 @@ To run the Web Interface in your favorite container environment, use the provide
 Build the container image with:
 
 ```shell
-$ podman build . -t beaker-next-ui
+$ podman build . -t dandelion
 ```
 
 After building is completed, you can run it, mapping port 80 to some local port:
 
 ```shell
-$ podman run -d -p 8081:80 beaker-next-ui
+$ podman run -d -p 8081:80 dandelion
 ```
 
 The Interface should now be available in the address `http://localhost:8081`

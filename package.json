@@ -33,7 +33,7 @@
     "@testing-library/jest-dom": "^5.11.0",
     "@testing-library/react": "^10.4.4",
     "@types/jest": "^26.0.3",
-    "@types/webpack": "^4.41.19",
+    "@types/webpack": "^4.41.20",
     "@typescript-eslint/eslint-plugin": "^2.34.0",
     "@typescript-eslint/parser": "^2.34.0",
     "css-loader": "^3.6.0",

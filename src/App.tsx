@@ -1,5 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import '@patternfly/react-core/dist/styles/base.css';
 
@@ -9,7 +10,9 @@ import store from './store';
 const App: React.FC = () => {
   return (
     <Provider store={store}>
-      <MainScreen />
+      <Router>
+        <MainScreen />
+      </Router>
     </Provider>
   );
 };

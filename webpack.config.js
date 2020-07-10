@@ -119,4 +119,7 @@ module.exports = {
     symlinks: false,
     cacheWithContext: false
   },
+  devServer: {
+    historyApiFallback: true
+  },
 };

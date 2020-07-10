@@ -3,6 +3,7 @@ import { render, fireEvent } from '../../tests/testUtils';
 import MainScreen from './MainScreen';
 
 jest.mock('../localTime/LocalTime', () => 'div');
+jest.mock('../landingPage/LandingPage', () => 'div');
 
 describe('<MainScreen />', () => {
   test('should render the Navigation Bar text', async () => {

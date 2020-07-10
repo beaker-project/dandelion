@@ -7,6 +7,7 @@ import {
 } from '@patternfly/react-core';
 
 import LocalTime from '../localTime/LocalTime';
+import LandingPage from '../landingPage/landingPage';
 
 const MainScreen: React.FC = () => {
   const [isNavOpen, setIsNavOpen] = useState(true);
@@ -34,6 +35,7 @@ const MainScreen: React.FC = () => {
 
   return (
     <Page header={Header} sidebar={Sidebar}>
+      <LandingPage />
       <LocalTime />
     </Page>
   );

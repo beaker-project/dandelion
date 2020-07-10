@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
+import { NavLink, Switch, Route } from 'react-router-dom';
 import {
+  Nav,
+  NavItem,
+  NavList,
   Page,
   PageHeader,
   PageHeaderTools,
@@ -23,10 +27,26 @@ const MainScreen: React.FC = () => {
       onNavToggle={onNavToggle}
     />
   );
+  const Navigation = (
+    <Nav id="nav-primary-simple" theme="dark">
+      <NavList id="nav-list-simple">
+        <NavItem>
+          <NavLink exact to="/" activeClassName="pf-m-current">
+            Start
+          </NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink exact to="/localtime" activeClassName="pf-m-current">
+            Local Time
+          </NavLink>
+        </NavItem>
+      </NavList>
+    </Nav>
+  );
 
   const Sidebar = (
     <PageSidebar
-      nav="Navigation"
+      nav={Navigation}
       isNavOpen={isNavOpen}
       theme="dark"
       data-testid="sidebar"
@@ -35,8 +55,10 @@ const MainScreen: React.FC = () => {
 
   return (
     <Page header={Header} sidebar={Sidebar}>
-      <LandingPage />
-      <LocalTime />
+      <Switch>
+        <Route exact path="/" component={LandingPage} />
+        <Route exact path="/localtime" component={LocalTime} />
+      </Switch>
     </Page>
   );
 };

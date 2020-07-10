@@ -11,7 +11,8 @@ import {
 } from '@patternfly/react-core';
 
 import LocalTime from '../localTime/LocalTime';
-import LandingPage from '../landingPage/landingPage';
+import LandingPage from '../landingPage/LandingPage';
+import PageNotFound from '../pageNotFound/PageNotFound';
 
 const MainScreen: React.FC = () => {
   const [isNavOpen, setIsNavOpen] = useState(true);
@@ -58,6 +59,7 @@ const MainScreen: React.FC = () => {
       <Switch>
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/localtime" component={LocalTime} />
+        <Route path="*" component={PageNotFound} />
       </Switch>
     </Page>
   );

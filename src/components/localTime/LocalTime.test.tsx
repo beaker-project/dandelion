@@ -3,14 +3,22 @@ import { connectedRender, fireEvent } from '../../tests/testUtils';
 import LocalTime from './LocalTime';
 import { LocaltimeTypes } from '../../store/ducks/localtime/types';
 
+const localtimeState = {
+  localtime: {
+    dateString: 'example-datestring',
+  },
+};
+
 describe('<LocalTime />', () => {
   test('renders', async () => {
-    const { store, result } = connectedRender(<LocalTime />);
+    const { store, result } = connectedRender(<LocalTime />, localtimeState);
     store.clearActions();
-    expect(result.getByText(/Current date/)).toBeInTheDocument();
+    expect(
+      result.getByText(/Current date \/ time is example-datestring/)
+    ).toBeInTheDocument();
   });
   test('dispatches actions when needed', async () => {
-    const { store, result } = connectedRender(<LocalTime />);
+    const { store, result } = connectedRender(<LocalTime />, localtimeState);
     expect(
       store
         .getActions()

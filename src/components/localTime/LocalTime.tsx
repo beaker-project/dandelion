@@ -24,8 +24,8 @@ const LocalTime: React.FC = () => {
 
   return (
     <PageSection variant={PageSectionVariants.dark}>
-      Current date / time is
-      {localTime} <Button onClick={queryLocalTime}>Refresh!</Button>
+      Current date / time is {localTime}
+      <Button onClick={queryLocalTime}>Refresh!</Button>
     </PageSection>
   );
 };

@@ -1,33 +1,35 @@
 import React, { ReactElement, ReactNode } from 'react';
 import { render as rtlRender } from '@testing-library/react';
 import { Provider } from 'react-redux';
+import { Router } from 'react-router-dom';
+import { createMemoryHistory } from 'history';
 import createSagaMiddleware from 'redux-saga';
 import configureStore from 'redux-mock-store';
-import { AppState } from '../store';
 
 const middlewares = [createSagaMiddleware()];
-const mockStore = configureStore<AppState>(middlewares);
+const mockStore = configureStore(middlewares);
 
-function connectedRender(
+const connectedRender = (
   ui: ReactElement,
-  initialState: AppState = {
-    localtime: {
-      dateString: '',
-      loading: false,
-      error: false,
-    },
-  },
+  state = {},
+  route = '/',
   { ...renderOptions } = {}
-) {
-  const store = mockStore(initialState);
-  function Wrapper({ children }: { children?: ReactNode }) {
-    return <Provider store={store}>{children}</Provider>;
-  }
+) => {
+  const store = mockStore(state);
+  const history = createMemoryHistory({ initialEntries: [route] });
+  const Wrapper = ({ children }: { children?: ReactNode }) => {
+    return (
+      <Provider store={store}>
+        <Router history={history}>{children}</Router>
+      </Provider>
+    );
+  };
   return {
     store,
+    history,
     result: rtlRender(ui, { wrapper: Wrapper, ...renderOptions }),
   };
-}
+};
 
 export * from '@testing-library/react';
 

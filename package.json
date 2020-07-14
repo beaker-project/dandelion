@@ -1,13 +1,13 @@
 {
-  "name": "beaker-dashboard",
+  "name": "dandelion",
   "version": "1.0.0",
-  "description": "Beaker Dashboard",
+  "description": "Dandelion | Your favorite React / PatternFly seed",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/beaker-project/beaker-dashboard.git"
+    "url": "git+https://github.com/beaker-project/dandelion.git"
   },
   "author": "Beaker Developers <developers@beaker-project.org>",
-  "license": "GPL-3.0-or-later",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/beaker-project/beaker-dashboard/issues"
   },

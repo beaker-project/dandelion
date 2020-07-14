@@ -6,6 +6,7 @@ It has some predefined structure, boilerplate code, and examples to start with. 
 - React Hooks in functional components
 - Patternfly 4
 - TypeScript
+- React-router for route management
 - Redux for state management
 - Redux-saga for side-effects handling
 - Jest + React Testing Library for tests

@@ -8,7 +8,7 @@ import {
 
 const LandingPage: React.FC = () => {
   return (
-    <PageSection variant={PageSectionVariants.darker}>
+    <PageSection variant={PageSectionVariants.light}>
       <Title headingLevel="h1" size="lg">
         Welcome to Dandelion
       </Title>

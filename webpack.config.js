@@ -1,5 +1,6 @@
 const path = require('path');
 
+const webpack = require('webpack');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -103,6 +104,7 @@ const config = {
       filename: '[name].css',
       chunkFilename: '[name].bundle.css',
     }),
+    new webpack.EnvironmentPlugin({ ...process.env }),
   ],
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],

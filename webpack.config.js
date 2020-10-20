@@ -116,6 +116,12 @@ const config = {
   },
   devServer: {
     historyApiFallback: true,
+    watchOptions: {
+      ignored: [
+        path.resolve(__dirname, 'dist'),
+        path.resolve(__dirname, 'node_modules'),
+      ],
+    },
   },
 };
 

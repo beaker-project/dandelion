@@ -1,0 +1,27 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: monthly
+  open-pull-requests-limit: 10
+  reviewers:
+  - StykMartin
+  ignore:
+  - dependency-name: "@patternfly/react-icons"
+    versions:
+    - 4.8.4
+    - 4.9.2
+  - dependency-name: "@patternfly/react-core"
+    versions:
+    - 4.97.2
+  - dependency-name: webpack-cli
+    versions:
+    - 4.4.0
+    - 4.5.0
+  - dependency-name: "@testing-library/react"
+    versions:
+    - 11.2.3
+  - dependency-name: html-webpack-plugin
+    versions:
+    - 4.5.1

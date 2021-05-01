@@ -71,7 +71,7 @@
   },
   "dependencies": {
     "@patternfly/react-core": "^4.106.2",
-    "@types/react": "^17.0.0",
+    "@types/react": "^17.0.4",
     "@patternfly/react-icons": "^4.9.9",
     "@types/react-dom": "^17.0.1",
     "axios": "^0.21.1",

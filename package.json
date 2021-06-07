@@ -67,7 +67,7 @@
     "webpack": "^4.44.2",
     "webpack-bundle-analyzer": "^4.4.2",
     "webpack-cli": "^4.6.0",
-    "webpack-dev-server": "^3.11.1"
+    "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
     "@patternfly/react-core": "^4.106.2",

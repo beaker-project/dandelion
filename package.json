@@ -70,7 +70,7 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
-    "@patternfly/react-core": "^4.106.2",
+    "@patternfly/react-core": "^4.135.0",
     "@types/react": "^17.0.12",
     "@patternfly/react-icons": "^4.11.0",
     "@types/react-dom": "^17.0.1",

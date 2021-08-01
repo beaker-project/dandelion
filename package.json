@@ -73,7 +73,7 @@
     "@patternfly/react-core": "^4.135.0",
     "@types/react": "^17.0.12",
     "@patternfly/react-icons": "^4.11.0",
-    "@types/react-dom": "^17.0.1",
+    "@types/react-dom": "^17.0.9",
     "axios": "^0.21.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",

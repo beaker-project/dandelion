@@ -2,7 +2,7 @@ import { call, put } from 'redux-saga/effects';
 import api from '../../../services/api';
 import { loadSuccess, loadFailure } from './actions';
 
-export default function* load() {
+export default function* load(): any {
   try {
     const response = yield call(api.get, 'ip');
     yield put(loadSuccess(response.data));

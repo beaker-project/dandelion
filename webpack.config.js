@@ -4,13 +4,20 @@ const webpack = require('webpack');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 const config = {
   entry: './src/index.tsx',
   module: {
     rules: [
+      {
+        test: /\.m?js/,
+        resolve: 
+        {
+          fullySpecified: false,
+        },
+      },
       {
         test: /\.html$/,
         use: [
@@ -118,11 +125,13 @@ const config = {
   },
   devServer: {
     historyApiFallback: true,
-    watchOptions: {
-      ignored: [
-        path.resolve(__dirname, 'dist'),
-        path.resolve(__dirname, 'node_modules'),
-      ],
+    static: {
+      watch: {
+        ignored: [
+          path.resolve(__dirname, 'dist'),
+          path.resolve(__dirname, 'node_modules'),
+        ],
+      },
     },
   },
 };
@@ -134,7 +143,7 @@ module.exports = (env, argv) => {
         analyzerMode: 'static',
         reportFilename: '../report.html',
       }),
-      new OptimizeCSSAssetsPlugin({}),
+      new CssMinimizerPlugin({}),
     );
   }
 

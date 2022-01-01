@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/beaker-project/beaker-dashboard#readme",
   "devDependencies": {
-    "@commitlint/cli": "^13.1.0",
+    "@commitlint/cli": "^16.0.1",
     "@commitlint/config-conventional": "^13.1.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.1.2",
